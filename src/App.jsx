@@ -1,5 +1,5 @@
-import { useState } from "react"
-import confetti from "canvas-confetti"
+import { useState } from 'react'
+import confetti from 'canvas-confetti'
 
 const TURNS = {
   X: '❌',
@@ -31,8 +31,7 @@ const WINNER_COMBOS = [
   [2, 4, 6]
 ]
 
-
-function App() {
+function App () {
   const [turn, setTurn] = useState(TURNS.X)
   const [board, setBoard] = useState(Array(9).fill(null))
   const [winner, setWinner] = useState(null)
@@ -59,11 +58,11 @@ function App() {
   }
 
   const checkEndGame = (newBoard) => {
-    return newBoard.every((square) => square!== null)
+    return newBoard.every((square) => square !== null)
   }
 
   const updateBoard = (index) => {
-    if(board[index] || winner) return
+    if (board[index] || winner) return
     const newBoard = [...board]
     newBoard[index] = turn
     setBoard(newBoard)
@@ -79,10 +78,10 @@ function App() {
   }
 
   return (
-    <main className="board">
+    <main className='board'>
       <button onClick={resetGame}>Reset del Juego</button>
       <h1>Tic Tac Toe</h1>
-      <section className="game">
+      <section className='game'>
         {
           board.map((_, index) => {
             return (
@@ -93,7 +92,7 @@ function App() {
           })
         }
       </section>
-      <section className="turn">
+      <section className='turn'>
         <Square isSelected={turn === TURNS.X}>
           {TURNS.X}
         </Square>
@@ -104,14 +103,14 @@ function App() {
 
       {
         winner !== null && (
-          <section className="winner">
-            <div className="text">
+          <section className='winner'>
+            <div className='text'>
               <h2>
                 {
-                  winner === false ? 'Empate' : 'Ganó:' 
+                  winner === false ? 'Empate' : 'Ganó:'
                 }
               </h2>
-              <header className="win">
+              <header className='win'>
                 {winner && <Square>{winner}</Square>}
               </header>
               <footer>
