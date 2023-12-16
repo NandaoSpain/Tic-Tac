@@ -11,6 +11,7 @@ const Square = ({ children, isSelected, updateBoard, index }) => {
 
   const handleClick = () => {
     updateBoard(index)
+    console.log(index)
   }
 
   return (
